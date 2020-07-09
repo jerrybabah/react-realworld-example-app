@@ -16,7 +16,7 @@ export default function App() {
     <Router>
       <Header />
         <Switch>
-          <Route path='/'>
+          <Route path='/a'>
             <Home />
           </Route>
           <Route path='/login'>
@@ -26,7 +26,7 @@ export default function App() {
             <Register />
           </Route>
           {/* slug 전달 */}
-          <Route path='/article/<:slug>'>
+          <Route path='/'>
             <Article />
           </Route>
         </Switch>
