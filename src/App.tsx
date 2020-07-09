@@ -1,26 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+import Header from './layout/Header';
+import Footer from './layout/Footer';
+import Home from './page/Home';
+import Login from './page/Login';
+import Register from './page/Register';
+import Article from './page/Article';
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Header />
+        <Switch>
+          <Route path='/'>
+            <Home />
+          </Route>
+          <Route path='/login'>
+            <Login />
+          </Route>
+          <Route path='/register'>
+            <Register />
+          </Route>
+          {/* slug 전달 */}
+          <Route path='/article/<:slug>'>
+            <Article />
+          </Route>
+        </Switch>
+      <Footer />
+    </Router>
   );
 }
-
-export default App;
